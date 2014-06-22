@@ -10,15 +10,14 @@ The following scripts are provided :-
 
 Execution method :-
 
-All the user has to do is decide on a working directory.
+Choose a working directory - I used c:\data\har5
+Obtain the project HAR file - either manually or by following setup_analysis.R technique
+Verify that Dataset.zip has been expanded to provide a directory named UCI HAR Dataset.
+Set working directory
 
-This work assumes C:\data\har5 on a windows PC.
+	setwd("C:\\data\\har5\\UCI HAR Dataset")
 
-Either manually or by running the setup_analysis.R script make the HAR files available.
-
-After unzipping the project zip archive file Dataset.zip the results will be placed in a directory named UCI HAR Dataset.
-
-Then run the analysis
+Run the analysis
 
 source("run_analysis.R")
 

@@ -52,6 +52,12 @@ As detailed above
  They are calculated using a mean function performed within DCAST which provides variables describing the cross tab of subject and activity label.
  The Average prefix is added for presentation later on in processing.
  
+ Additional working variables calculated include:
+ X_COLS - names of features which fall within the mean and standard deviation name pattern scope
+ X_ALL  - unified measures from test and training with associated subject/activity details
+ narrow - melted X_ALL by subject and activity 
+ tdy    - transformed wide format tidy data equivalent to narrow provided by DCAST statement
+ 
 
 Variable Name         			                 
 1	subject id    			

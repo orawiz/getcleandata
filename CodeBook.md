@@ -1,14 +1,57 @@
-The following variables are present in the file har_tidy.csv 
+This code book describes the contents of the file har_tidy.csv. 
+
+Variables are derived from the UCI HAR dataset. 
 
 All variables are numeric data types except the Activity Label which is a string
 
-These variables are derived from the UCI HAR dataset. See explanations in features_info.txt
+The subject ID  identifies a test subject and falls in the range 1 to 30.
+The activity ID identifies an activity and falls in the range 1 to 6
+The activity label is a translated activity ID and will be one of 
+	WALKING
+	WALKING_UPSTAIRS
+	WALKING_DOWNSTAIRS
+	SITTING
+	STANDING
+	LAYING
+	
+Each feature is normalised and bounded within the range [-1,1]. This is the range of measure variables.
+	 
 
+As described in features_info.txt and simplified here :-
+sensor signals (accelerometer and gyroscope) are 
+ . pre-processed by applying noise filters
+ . sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window)
+ . gravity is subject to a filter with 0.3 HZ cutoff frequency
+ . for each window a vector of features was obtained by calculating variables from the time and frequency domain
+
+
+Explanation of variable names
+==============================
+ 
 Variables are provided by accelerometer and gyroscope sensors - Acc and Gyro variable names.
+ 
+Units of the variables
+=======================
 
+Acelleration signal(Acc) is in standard gravity units (g)
+Angular velocity vector measured by the gyroscope (Gyro) units are radians per second.
+ 
 The variable names starting with t are 3 dimensional axial signals (ending X,Y,Z) calculated using the Euclidean norm 
 The variable names starting with f are the result of a fast fourier transformation
 The variable names starting with Average are calculated means of a measure variable for a single subject/activity combination - more details below.
+As detailed above 
+   each Average is a mean of a feature which is bounded to the range -1 to 1.
+   each Acc variable is in standard gravity units(g)
+   each Gyro variable is in radians per second units
+ 
+
+ Calculated variables
+ ===================
+ 
+ The summary variable names starting with Average are calculated and placed in the tdy tidy data frame on line 233 of run_analysis.R
+ They are calculated using a mean function performed within DCAST which provides variables describing the cross tab of subject and activity label.
+ The Average prefix is added for presentation later on in processing.
+ 
 
 Variable Name         			                 
 1	subject id    			
@@ -81,7 +124,8 @@ Variable Name
 68	Average fBodyBodyGyroJerkMag mean
 69	Average fBodyBodyGyroJerkMag std
 
-
+Data transformations method
+===========================
 
 X files provide measure data
 Y files provide measure activity identifiers. 
